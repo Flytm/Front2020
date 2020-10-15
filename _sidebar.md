@@ -1,8 +1,8 @@
 * [简介](README.md)
 
-* [HTML](HTML/introduction.md)
+* [HTML](HTML/Introduction.md)
 
-* [CSS](CSS/introduction.md)
+* [CSS](CSS/Introduction.md)
 
-* [JavaScript](JavaScript/introduction.md)
+* [JavaScript](JavaScript/Introduction.md)
 
