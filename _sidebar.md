@@ -4,5 +4,7 @@
 
 * [CSS](CSS/Introduction.md)
 
-* [JavaScript](JavaScript/Introduction.md)
+* JavaScript
+
+    * [简介](JavaScript/Introduction.md)
 
