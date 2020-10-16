@@ -1,4 +1,4 @@
-![Front2020](logo.svg)
+![Front2020](logo.png)
 
 # Front2020
 
