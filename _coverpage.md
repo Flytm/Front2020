@@ -1,4 +1,4 @@
-![Front2020](logo.png)
+![Front2020](logo.svg)
 
 # 前端学习笔记
 
