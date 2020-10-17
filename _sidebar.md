@@ -7,4 +7,5 @@
 * JavaScript
 
     * [简介](JavaScript/Introduction.md)
+    * [基础](JavaScript/basis.md)
 
