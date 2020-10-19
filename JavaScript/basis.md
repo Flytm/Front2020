@@ -138,3 +138,39 @@ if |import | in |instanceof |new |return
 super |switch |this |throw |try
 typeof |var |void |while |with
 yield |
+
+## 注释
+
+JavacScript中单行注释以`//`开头
+多行注释以 `/*` 开始，以 `*/` 结尾。
+```js
+    // 单行注释
+    /* 
+    多行注释
+    多行注释
+    */
+```
+>在客户端里面一般注释的快捷键都是`Ctrl`+`/`
+
+## 数据类型
+
+基本类型：字符串（String）、数字(Number)、布尔(Boolean)、对空（Null）、未定义（Undefined）、Symbol
+
+引用数据类型：对象(Object)、数组(Array)、函数(Function)
+
+
+
+**字符串**
+
+```js
+var name = "这是一个字符串";
+```
+
+**数字**
+JavaScript只有一种数字类型(nameber)可以表示32整数以及64位的浮点数
+```js
+var x1 = 34.00;      //使用小数点来写
+var x2 = 34;         //不使用小数点来写
+var x3 = 123e-5;     // 科学记数法 0.00123
+```
+**布尔**
