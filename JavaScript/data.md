@@ -41,6 +41,7 @@ var name = 'I\'m iron man';
 // 应该使用转义字符,告诉计算机中间的单引号是文本
 ```
 
+
 ## 数字
 JavaScript只有一种数字类型(nameber)可以表示32整数以及64位的浮点数
 ```js
@@ -73,12 +74,20 @@ var result2 = x + y;  // 数字加上字符串 会转换成字符串  "34哈哈"
 
 - `null`: 声明对象未初始化(赋值)
 
+
 ## 未定义
 
 `undefined`:
 - 声明变量未赋值
 - 访问对象不存在的属性
 
+```js
+null === undefined           // false
+null == undefined            // true
+//null 和 undefined 的值相等，但类型不等
+```
+null是一个表示"无"的对象，转为数值时为0；undefined是一个表示"无"的原始值，转为数值时为NaN
+ 
 ## 数据类型转换
 
 js是弱类型语言，它是由数据来决定变量的数据类型的
