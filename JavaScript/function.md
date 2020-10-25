@@ -84,7 +84,7 @@ function add(){
 }
 console.log(sum);  //报错，sum只在函数内可以访问
 ```
-## 全局变量 :id = global_variable
+## 全局变量 :id=global_variable
 
 ```js
 var sum = 0; 、// 全局变量
