@@ -50,7 +50,7 @@ JavaScript中代码行的结尾要加英文状态下的分号" ; "
 
 变量就是内存中的一段储存空间，变量名表示储存空间的别名，可以自定义;变量值就是保存在内存空间的数据
 
-**变量的声明**
+### 变量的声明
 
 使用`var`关键字声明变量
 ```js
@@ -61,9 +61,10 @@ JavaScript中代码行的结尾要加英文状态下的分号" ; "
     var a = 1, b = 2;
 
 ```
-!> 如果不使用var声明，变量会成为[全局变量](function.md/id=global_variable)
-
+如果不使用var声明，变量会成为[全局变量]() 
 声明变量不赋值的话默认值是`undefined`
+
+var声明的变量会成为包含它的函数的[局部变量]()
 
 js的变量声明，无论发生在何处，都在执行任何代码之前进行处理。例如下方代码
 ```js
@@ -105,21 +106,101 @@ js的变量声明，无论发生在何处，都在执行任何代码之前进行
     var x = 0;
 
     function f(){
-    var x;
-    x = y = 1; 
+    var x;       //函数内部的x声明是局部变量
+    x = y = 1; // y 没有用var声明，所以y是全局变量
     }
     f();  //执行函数f
 
     console.log(x, y); //输出为 0, 1
-    // x 是全局变量。
-    // y 是隐式声明的全局变量。 
-    x
+    // x 是全局变量
+    
+    
 ```
 首先`x`为0是因为我们打印的是全局变量`x`，而不是函数内部的；而`y`没有经过`var`声明，所以也是全局变量；如果没有给`y`赋值的话， `console.log(x, y);` 就会抛出`ReferenceError`错误，因为`y`没有经过声明也没有定义的。
-在*ECMAScript6*(js标准)中引入了`let`关键字也可以声明变量
+在*ECMAScript6*(js标准)中引入了`let`和`const`关键字也可以声明变量
+
+`let`和`var`作用差不多，第一个区别是`let`声明的范围是块作用域，`var`声明的范围是函数作用域
+块作用域是函数作用域的子集，所以适用`var`的作用域限制也适用`let`
+```js
+if (true){
+    var name = 'John';
+    console.log(name); // John
+}
+console.log(name);   //John
+
+if (true){
+    let age = '25';
+    console.log(age); // 25
+}
+console.log(age);   // ReferenceErroe:age 没有定义
+```
+
+`age`变量的作用域仅限于`if`块内，所以不能再`if`块外使用 同理在`for`循环中let``声明的变量也不能在for循环块外引用
+```js
+for(var i = 0; i < 5; i++){
+    //xxxxx
+}
+console.log(i)  //5
+
+for(let i = 0; i < 5; i++){
+    //xxxxx
+}
+console.log(i)  //ReferenceError: i 没有定义
+```
+`let`声明迭代变量时，JS会在后台给每个迭代循环声明一个新的迭代变量
+第二个区别是`let`也不允许同一个块内出现重复声明，但是不影响嵌套使用
+```js
+var name;
+var name; // 没有报错，可以这样使用
+
+let age;
+let age; //SyntaxError: age已经声明过了
+
+var age;
+let age; //SyntaxError: age已经声明过了
+
+//嵌套使用let声明
+let age = 30;
+console.log(age); // 30
+if (true){
+    let age = '25';
+    console.log(age); // 25
+}
+```
+第三个区别是`let`声明的变量不会在作用域中被提升
+```js
+//age会被提升
+console.log(age); // undefined
+var age = 30;
 
 
-**变量名命名规范**
+console.log(name); // ReferenceError:name没有定义
+let name = 'John';
+
+```
+第四个区别是使用`let`声明的变量不会成为window对象的属性，而var声明的则会
+```js
+var age = 30;
+console.log(window.age); //30
+
+
+let name = 'John';
+console.log(window.name); // undefined
+
+```
+###
+`const`的行为基本和`let`相同，主要区别在于`const`声明变量时必须初始化，且不能修改`const`声明的变量，所以不能用来声明循环中的迭代变量
+```js
+const age = 35;
+age = 36; //typeError 给常量赋值
+```
+`const`的限制只适用于它指向的变量的引用，比如`const`指向的是一个对象，那么修改对象的属性并不会违反`const`的限制
+```js
+const person = {};
+person.age = 36; //没问题
+```
+
+### 变量名命名规范
 
 
 1.可以由字母、数字、下划线以及$组成 

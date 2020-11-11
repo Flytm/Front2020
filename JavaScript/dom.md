@@ -44,11 +44,11 @@ var value = elem.getAttribute("属性");
 
 **判断是否包含指定属性**
 
-`elem.hasAttrbute("属性名";`
+`elem.hasAttrbute("属性名");`
 
 **移除指定属性**
 
-`elem.removeAttrbute("属性名";`
+`elem.removeAttrbute("属性名");`
 
 ## DOM添加
 
