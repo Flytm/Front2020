@@ -112,3 +112,43 @@ Math.cbrt(); //立方根
 Math.cos(); //余弦
 Math.pow(x, n); //x的n次幂
 ```
+
+## Object
+
+```js
+let person = new Object();
+person.name = "abc";
+person.age = 25;
+
+let person = {
+    name: "abc";
+    age = 25;
+};
+```
+
+上方代码是创建`Object`对象的两种方式，`Object`主要用于储存交换数据
+
+## 数组
+
+`Array`三种创建方法
+
+```js
+var myCars = new Array();
+myCars[0] = "Saab";
+myCars[1] = "Volvo";
+myCars[2] = "BMW";
+
+var myCars = new Array("Saab", "Volvo", "BMW");
+
+var myCars = ["Saab", "Volvo", "BMW"];
+
+//访问数组
+var name = myCars[0]; //Saab
+
+//修改数组
+myCars[0] = "Opel";
+// myCars 中元素的数量
+var x = myCars.length;
+// "Volvo" 值的索引值
+var y = myCars.indexOf("Volvo");
+```
