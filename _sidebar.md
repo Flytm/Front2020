@@ -19,3 +19,5 @@
   - [对象](JavaScript/object.md)
   - [DOM](JavaScript/dom.md)
   - [BOM](JavaScript/bom.md)
+  - [函数进阶](JavaScript/function_plus.md)
+  - [数组](JavaScript/array.md)
