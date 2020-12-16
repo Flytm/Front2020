@@ -1,8 +1,12 @@
 - [简介](README.md)
 
-- [HTML](HTML/Introduction.md)
-  - [基础入门](HTML/summary.md)
-- [CSS](CSS/Introduction.md)
+- HTML
+
+  - [基础总结](HTML/summary.md)
+
+- CSS
+
+  - [基础总结](CSS/basis.md)
 
 - JavaScript
 
