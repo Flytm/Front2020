@@ -28,6 +28,16 @@ function hello() {
 hello();
 ```
 
+## 匿名函数
+
+```js
+let functionName = function () {
+  可执行语句;
+};
+```
+
+这样声明的函数因为`function`后面没有标识符所以称为**匿名函数**
+
 ## 参数与返回值
 
 **带参数的函数**

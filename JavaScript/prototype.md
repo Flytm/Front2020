@@ -1,4 +1,4 @@
-mycar## 原型
+## 原型
 
 每个对象拥有一个**原型对象**，对象以其原型为模板、从原型继承方法和属性。原型对象也可能拥有原型，并从中继承方法和属性，一层一层、以此类推。这种关系常被称为**原型链**这个属性是一个对象，它包含了实例共享的属性和方法
 
@@ -66,6 +66,8 @@ let instance = new Sub();
 console.log(instance.getNumber()); // 1
 ```
 
+调用`getNumber()`首先会在实例上搜索，如果没找到的话就按着原型链向上搜索，其搜索顺序为实例`instance`、子类原型`Sub.prototype` 、父类原型`Super.prototype`
+
 ## 类
 
 从上面也可以看出实现继承的代码过于复杂，所以 ES6 引进`class`类
@@ -86,3 +88,5 @@ let mycar = new Bus();
 console.log(mycar instanceof Vehicle); // true
 console.log(mycar instanceof Bus); // true
 ```
+
+`instanceof`用于检测构造函数的`prototype`属性是否出现在某个实例对象的原型链上。

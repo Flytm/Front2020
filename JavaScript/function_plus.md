@@ -82,7 +82,7 @@ let sum = function (num1, num2) {
 ## 函数内部
 
 **arguments**
-`arguments`是一个类似数组的对象，它只有数组的`length`属性和索引，主要包含调用函数时传入的所有参数。
+`arguments`是一个类似数组的对象，它只有数组的`length`属性和索引，主要包含调用函数时传入的**所有参数**。
 
 ```js
 //阶乘函数
@@ -134,4 +134,93 @@ o.saycolor(); // red
 
 因为箭头还是是在全局上下文中定义的，所以两次引用的都是`window`对象
 
+## 函数方法与属性
+
 **prototype**
+
+函数实例中共享的方法与属性都保存在函数的`prototype`属性上，比如`toString()`,`valueOf()`等方法
+
+**call()**
+
+`call()`作用是改变`this`指向
+
+```js
+window.color = "red";
+let o = {
+  color: "blue",
+};
+let sayColor = () => console.log(this.color);
+
+sayColor(); //red
+
+sayColor.call(this); //red
+sayColor.call(window); //red
+sayColor.call(o); //blue
+```
+
+**apply()**
+`apply()`作用和`call()`一样，就是接受参数的方式一样，`apply()`第一个是函数内的`this`值，第二个是参数数组。
+而`call()`的第二个参数是一系列参数。
+
+```js
+function sum(num1, num2) {
+  return num1 + num2;
+}
+
+function callSum1(num1, num2) {
+  return sum.apply(this, arguments); //arguments代表函数的参数数组
+}
+
+function callSum1(num1, num2) {
+  return sum.apply(this, [num1, num2]); //传入数组
+}
+
+console.log(callSum1(10, 10)); // 20
+console.log(callSum2(10, 10)); // 20
+```
+
+`apply()`与`call()`的好处是可以将任意对象设置为任意函数的作用域，这样对象可以不用关心方法
+
+**bind()**
+`bind()`方法会创建一个新的函数实例，其`this`值会被绑定到传给`bind()`的对象
+
+```js
+window.color = "red";
+let o = {
+  color: "blue",
+};
+let sayColor = () => console.log(this.color);
+
+sayColor(); //red
+
+let objectSayColor = sayColor.bind(o);
+objectSayColor(); //blue
+```
+
+## 递归
+
+递归函数就是一个函数通过名称调用自己
+
+```js
+function factorial(num) {
+  if (num <= 1) {
+    return 1;
+  } else {
+    return factorial(num - 1) * num;
+  }
+}
+```
+
+## 闭包
+
+闭包指的是那些引用另一个函数作用域中变量的函数，通常的在嵌套函数中实现的
+
+```js
+function A() {
+  let a = 1;
+  function B() {
+    console.log(a);
+  }
+  return B;
+}
+```

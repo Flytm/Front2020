@@ -21,3 +21,4 @@
   - [BOM](JavaScript/bom.md)
   - [函数进阶](JavaScript/function_plus.md)
   - [数组](JavaScript/array.md)
+  - [原型](JavaScript/prototype.md)
